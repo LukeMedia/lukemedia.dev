@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio website | Luke Wood</title>
+  <meta name="description" content="Project notes for lukemedia.dev: decisions, contributions and AI assistance, checks, and a dated update log.">
+  <link rel="icon" href="/favicon-cats.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="/" aria-label="Luke Wood, home">Luke Wood<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#projects">Projects</a>
+      <a href="/#about">About</a>
+      <a href="https://github.com/LukeMedia">GitHub</a>
+      <a href="https://www.linkedin.com/in/lukewood5">LinkedIn</a>
+    </nav>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    <a class="breadcrumb" href="/#projects">Back to projects</a>
+    <header class="project-hero">
+      <p class="eyebrow">Ongoing project</p>
+      <h1>Portfolio website<br><em>lukemedia.dev</em></h1>
+      <p class="intro">A static website for sharing my personal projects, live since October 2026. I set its goals, review each change, and publish it through GitHub and Cloudflare.
+        Codex generated the first version's HTML and CSS.</p>
+      <ul class="project-meta">
+        <li><strong>Status</strong> Ongoing</li>
+        <li><strong>Started</strong> October 2026</li>
+        <li><strong>Last updated</strong> October 19, 2026</li>
+        <li><strong>Built with</strong> HTML, CSS, Git, GitHub, Cloudflare</li>
+        <li><strong>Links</strong> <a href="https://lukemedia.dev/">Live site</a> &middot; <a href="https://github.com/LukeMedia/lukemedia.dev">Repository</a></li>
+      </ul>
+    </header>
+    <div class="case-body">
+      <nav class="contents" aria-label="On this page">
+        <div>
+          <p class="eyebrow">On this page</p>
+          <ul>
+            <li><a href="#goal">Goal</a></li>
+            <li><a href="#decisions">Decisions</a></li>
+            <li><a href="#contributions">My work and AI assistance</a></li>
+            <li><a href="#checks">Checks</a></li>
+            <li><a href="#updates">Update log</a></li>
+            <li><a href="#next">Planned next</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="prose">
+        <section id="goal">
+          <h2>Goal</h2>
+          <p>This site shares projects I pursue outside work to practice designing, building, and testing software. The first version is a homepage, one page of notes per project,
+            and a custom missing-page (404) page. It needed to read well on a phone and stay simple enough that I can learn from the code as I start changing it myself.</p>
+        </section>
+
+        <section id="decisions">
+          <h2>Decisions</h2>
+          <div class="decision">
+            <h3>Plain HTML and CSS</h3>
+            <p>The site is text, links, and a layout that adapts to screen width. Plain HTML and CSS cover that without a build step, framework, database, or browser JavaScript,
+              so every file can be read directly. The tradeoff is that the header and footer are repeated on each page. A static site generator becomes worth considering
+              if the number of project pages grows.</p>
+          </div>
+          <div class="decision">
+            <h3>Cloudflare hosting</h3>
+            <p>I directed Codex to compare the free plans from Cloudflare and Vercel. Either would host a static site for $0. I chose Cloudflare because the lukemedia.dev domain is
+              already registered there, which keeps the domain and hosting in one account.</p>
+          </div>
+          <div class="decision">
+            <h3>Review each change before it goes live</h3>
+            <p>Each change goes on its own Git branch. Cloudflare builds a preview of that branch, and the change reaches lukemedia.dev only after I merge the pull request on GitHub.</p>
+          </div>
+          <div class="decision">
+            <h3>Purple accents</h3>
+            <p>Purple is my favorite color, so it is used in the theme of the website. Codex checked the text colors against the WCAG minimum contrast ratio of 4.5:1.</p>
+          </div>
+          <div class="decision">
+            <h3>One project list with status tags</h3>
+            <p>Ongoing and completed projects share one list, each tagged with its status, so the layout works while the site has only a few projects.</p>
+          </div>
+          <div class="decision">
+            <h3>My role first, and no screenshots in the project list</h3>
+            <p>I asked Codex to review 12 portfolio sites for how they are usually laid out. Most put the person's role near the top and keep the project list as text, which I used as a reference here.</p>
+          </div>
+          <div class="decision">
+            <h3>A public repository for the code, and a private one for my working history</h3>
+            <p>I make changes and keep my working notes in a private repository, which holds the more frequent updates and my personal history. A separate public repository holds the site's code, and this site links to it.</p>
+          </div>
+        </section>
+
+        <section id="contributions">
+          <h2>My work and AI assistance</h2>
+          <div class="attribution">
+            <div>
+              <h3>What I did</h3>
+              <ul>
+                <li>Defined the site's purpose and audience.</li>
+                <li>Created the GitHub repository, reviewed potential layouts, and chose the color scheme.</li>
+                <li>Reviewed the wording in a Google Doc, left comments, and approved the first revision of the text.</li>
+                <li>Added the site icon, which is a drawing of my cats, and updated its links in all three pages.</li>
+                <li>Reviewed the layout drafts, chose which changes to keep, and edited the HTML myself.</li>
+                <li>Committed, pushed, and merged each change through pull requests.</li>
+                <li>Tested the live site on my phone and desktop, including the 404 page.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>How I used AI tools</h3>
+              <ul>
+                <li>Had Codex research hosting options.</li>
+                <li>Used Codex to generate the HTML, CSS, and a local preview server, then had it revise the layout from my feedback.</li>
+                <li>Had Codex apply my approved wording and run local checks.</li>
+                <li>Gave Codex the log from a failed preview build and had it find the fix.</li>
+                <li>Had Cursor draft an alternative version of the wording. The site's headline comes from that draft.</li>
+                <li>Used Cursor to build the layout drafts and copy the version I edited and approved into the site.</li>
+                <li>Had Codex review other portfolio sites for reference.</li>
+              </ul>
+            </div>
+          </div>
+          <p>Codex generated the first version's code. Each entry in the update log says who made that change, so the balance between my code and generated code shows there as it shifts.
+            My own code changes so far are the site icon update and the HTML edits in the October 19 layout revision.</p>
+        </section>
+
+        <section id="checks">
+          <h2>Checks</h2>
+          <p>The latest result for each kind of check. When a check is re-run, its row is replaced. The checks for each individual change are in the update log.</p>
+          <table class="checks">
+            <thead>
+              <tr><th scope="col">Check</th><th scope="col">Last checked</th><th scope="col">Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Links and missing-page responses</td><td>Cursor, Oct 19</td><td>Passed</td></tr>
+              <tr><td>Security headers in the local preview</td><td>Codex, Oct 11</td><td>Passed</td></tr>
+              <tr><td>Layout on phone widths (320px and 375px) and desktop</td><td>Cursor, Oct 19</td><td>Passed</td></tr>
+              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Cursor, Oct 19</td><td>Passed</td></tr>
+              <tr><td>Live site on phone and desktop, including the 404 page</td><td>Me and Codex, Oct 12</td><td>Worked</td></tr>
+            </tbody>
+          </table>
+          <p class="not-checked">Not yet checked: a full accessibility audit, performance measurements, and the hosted preview's access settings.
+            The full check record is kept in my private working repository.</p>
+        </section>
+
+        <section id="updates">
+          <h2>Update log</h2>
+          <p>Pull request numbers refer to my private working repository.</p>
+          <!-- Newest entry first. -->
+          <ol class="log" reversed>
+            <li>
+              <time datetime="2026-10-19">October 19, 2026</time>
+              <div>
+                <h3>Layout and wording revision</h3>
+                <p>A new layout that fits both ongoing and completed projects, with my role on the homepage, LinkedIn links, and a link to the public code repository. Cursor built the draft, and I chose which changes to keep and edited
+                  the HTML (PR #4).</p>
+                <p class="log-checks">Checked: I reviewed the draft in my browser. Cursor checked the links, the 404 page, phone widths, and the skip link locally.</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="2026-10-12">October 12, 2026</time>
+              <div>
+                <h3>Wording revision, full name, and site icon</h3>
+                <p>I reviewed the site's wording in a Google Doc, and Codex applied the text I approved. The header now uses my full name, and I added the cats icon.
+                  The first preview build for this change failed because the Cloudflare configuration was missing a required <code>previews</code> setting. I supplied the build log,
+                  Codex found the fix in Cloudflare's documentation, and I committed it and merged the change (PR #2).</p>
+                <p class="log-checks">Checked: Codex matched the pages against the approved document and confirmed they fit a 320px screen. After publishing, I tested the live site
+                  on my phone and desktop, and Codex confirmed the changes on lukemedia.dev.</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="2026-10-12">October 12, 2026</time>
+              <div>
+                <h3>First version published</h3>
+                <p>The homepage, these notes, and the 404 page. Codex generated the HTML and CSS from my goals and layout choices, and Cursor drafted part of the wording, including the headline.
+                  I merged the result (PR #1) and published it at lukemedia.dev.</p>
+                <p class="log-checks">Checked: Codex checked the links, missing-page responses, security headers, phone widths (320px and 375px), the skip link, and text contrast
+                  locally on October 11. After publishing, Codex confirmed the live pages loaded at lukemedia.dev and matched the merged files.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section id="next">
+          <h2>Planned next</h2>
+          <ul>
+            <li>Add a project page for my Linux home server, with a photo of the hardware.</li>
+            <li>Make a CSS change myself and explain how it affects the page.</li>
+            <li>Check that change on desktop and mobile, including keyboard navigation.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer wrap">
+    <p>&copy; 2026 Luke Wood</p>
+    <a href="/">Back to the homepage</a>
+  </footer>
+</body>
+</html>

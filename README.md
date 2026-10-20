@@ -7,3 +7,15 @@ The site is plain HTML and CSS, with no build step and no JavaScript, and it is 
 ## About this repository
 
 I make changes and keep my working notes in a private repository, where each change is previewed and published. This repository holds a copy of the code that is live on the site, and I update it when a change is published.
+
+## Files
+
+| File | Purpose |
+| --- | --- |
+| `dist/index.html` | Homepage |
+| `dist/projects/portfolio/index.html` | Project notes |
+| `dist/404.html` | Missing-page response |
+| `dist/styles.css` | Layout |
+| `dist/favicon-cats.png` | Site icon (cats drawing) |
+| `dist/favicon.svg` | Original icon, kept as a backup |
+| `dist/_headers` | Security headers |

@@ -38,6 +38,8 @@ h1 em { font-weight: 400; color: var(--accent); }
 .projects { border-top: 1px solid var(--line); }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
 .section-heading h2, .about h2 { font: 400 35px/1.2 var(--serif); letter-spacing: -.02em; margin-top: 11px; }
+.section.projects { padding-top: 30px; }
+.section-heading h2 { margin-top: 0; }
 .section-caption { color: var(--muted); font-size: 13px; max-width: 360px; }
 
 .project-list { border-top: 1px solid var(--line); }

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio website | Luke Wood</title>
   <meta name="description" content="Project notes for lukemedia.dev: decisions, contributions and AI assistance, checks, and a dated update log.">
+  <meta property="og:title" content="Portfolio website | Luke Wood">
+  <meta property="og:description" content="Project notes for lukemedia.dev: decisions, contributions and AI assistance, checks, and a dated update log.">
   <link rel="icon" href="/favicon-cats.png" type="image/png" sizes="64x64">
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -24,12 +26,11 @@
     <header class="project-hero">
       <p class="eyebrow">Ongoing project</p>
       <h1>Portfolio website<br><em>lukemedia.dev</em></h1>
-      <p class="intro">A static website for sharing my personal projects, live since October 2026. I set its goals, review each change, and publish it through GitHub and Cloudflare.
-        Codex generated the first version's HTML and CSS.</p>
+      <p class="intro">A static website for sharing my personal projects, live since October 2026.</p>
       <ul class="project-meta">
         <li><strong>Status</strong> Ongoing</li>
         <li><strong>Started</strong> October 2026</li>
-        <li><strong>Last updated</strong> October 19, 2026</li>
+        <li><strong>Last updated</strong> October 24, 2026</li>
         <li><strong>Built with</strong> HTML, CSS, Git, GitHub, Cloudflare</li>
         <li><strong>Links</strong> <a href="https://lukemedia.dev/">Live site</a> &middot; <a href="https://github.com/LukeMedia/lukemedia.dev">Repository</a></li>
       </ul>
@@ -51,8 +52,8 @@
       <div class="prose">
         <section id="goal">
           <h2>Goal</h2>
-          <p>This site shares projects I pursue outside work to practice designing, building, and testing software. The first version is a homepage, one page of notes per project,
-            and a custom missing-page (404) page. It needed to read well on a phone and stay simple enough that I can learn from the code as I start changing it myself.</p>
+          <p>This site shares projects I pursue outside work to practice designing, building, and testing software. The first version was a homepage, one page of notes per project,
+            and a custom 404 page. It needed to read well on a phone and stay simple enough for me to learn from and change.</p>
         </section>
 
         <section id="decisions">
@@ -65,28 +66,28 @@
           </div>
           <div class="decision">
             <h3>Cloudflare hosting</h3>
-            <p>I directed Codex to compare the free plans from Cloudflare and Vercel. Either would host a static site for $0. I chose Cloudflare because the lukemedia.dev domain is
+            <p>I had Codex compare the free plans from Cloudflare and Vercel. Either would host a static site for $0. I chose Cloudflare because the lukemedia.dev domain is
               already registered there, which keeps the domain and hosting in one account.</p>
           </div>
           <div class="decision">
-            <h3>Review each change before it goes live</h3>
+            <h3>Previewing each change before it goes live</h3>
             <p>Each change goes on its own Git branch. Cloudflare builds a preview of that branch, and the change reaches lukemedia.dev only after I merge the pull request on GitHub.</p>
           </div>
           <div class="decision">
             <h3>Purple accents</h3>
-            <p>Purple is my favorite color, so it is used in the theme of the website. Codex checked the text colors against the WCAG minimum contrast ratio of 4.5:1.</p>
+            <p>Purple is my favorite color, so I used it for the site's accents. Codex checked the text colors against the WCAG minimum contrast ratio of 4.5:1.</p>
           </div>
           <div class="decision">
             <h3>One project list with status tags</h3>
-            <p>Ongoing and completed projects share one list, each tagged with its status, so the layout works while the site has only a few projects.</p>
+            <p>I tried separate sections for ongoing and completed projects, but the split repeated each status tag and left the completed section empty. Projects now share one list, each tagged with its status.</p>
           </div>
           <div class="decision">
             <h3>My role first, and no screenshots in the project list</h3>
-            <p>I asked Codex to review 12 portfolio sites for how they are usually laid out. Most put the person's role near the top and keep the project list as text, which I used as a reference here.</p>
+            <p>Portfolio sites often put the person's role near the top, where readers see it first, so mine sits above the headline. I left screenshots out of the project list because my first projects wouldn't all have useful images, and a list where only some entries have one looks inconsistent. Photos go on project pages instead, where they show something a reader can't otherwise see.</p>
           </div>
           <div class="decision">
             <h3>A public repository for the code, and a private one for my working history</h3>
-            <p>I make changes and keep my working notes in a private repository, which holds the more frequent updates and my personal history. A separate public repository holds the site's code, and this site links to it.</p>
+            <p>I make changes and keep my working notes in a private repository, which has the more frequent updates and my personal history. A separate public repository holds a copy of the site's code, and this site links to it.</p>
           </div>
         </section>
 
@@ -99,10 +100,11 @@
                 <li>Defined the site's purpose and audience.</li>
                 <li>Created the GitHub repository, reviewed potential layouts, and chose the color scheme.</li>
                 <li>Reviewed the wording in a Google Doc, left comments, and approved the first revision of the text.</li>
-                <li>Added the site icon, which is a drawing of my cats, and updated its links in all three pages.</li>
+                <li>Added the site icon, which is a drawing of my cats (thanks for the drawing, Fern!), and updated its links on all three pages.</li>
                 <li>Reviewed the layout drafts, chose which changes to keep, and edited the HTML myself.</li>
+                <li>Changed the homepage headline and adjusted the project-section spacing in the CSS.</li>
                 <li>Committed, pushed, and merged each change through pull requests.</li>
-                <li>Tested the live site on my phone and desktop, including the 404 page.</li>
+                <li>Tested the live site and its 404 page on my phone and desktop.</li>
               </ul>
             </div>
             <div>
@@ -112,33 +114,33 @@
                 <li>Used Codex to generate the HTML, CSS, and a local preview server, then had it revise the layout from my feedback.</li>
                 <li>Had Codex apply my approved wording and run local checks.</li>
                 <li>Gave Codex the log from a failed preview build and had it find the fix.</li>
-                <li>Had Cursor draft an alternative version of the wording. The site's headline comes from that draft.</li>
+                <li>Had Cursor draft an alternative version of the wording. The site's first headline came from that draft.</li>
                 <li>Used Cursor to build the layout drafts and copy the version I edited and approved into the site.</li>
-                <li>Had Codex review other portfolio sites for reference.</li>
+                <li>Had Codex review other portfolio sites for common practices.</li>
+                <li>Used Claude to review the site's wording against my writing guide and apply the edits I chose.</li>
               </ul>
             </div>
           </div>
-          <p>Codex generated the first version's code. Each entry in the update log says who made that change, so the balance between my code and generated code shows there as it shifts.
-            My own code changes so far are the site icon update and the HTML edits in the October 19 layout revision.</p>
+          <p>Each entry in the update log says who made that change, so the balance between my code and generated code shows there as it shifts.
+            My own code changes so far are the site icon update, the HTML edits in the October 19 layout revision, and some HTML and CSS changes in the October 24 revision.</p>
         </section>
 
         <section id="checks">
           <h2>Checks</h2>
-          <p>The latest result for each kind of check. When a check is re-run, its row is replaced. The checks for each individual change are in the update log.</p>
+          <p>The latest result for each kind of check. Checks for each change are in the update log.</p>
           <table class="checks">
             <thead>
               <tr><th scope="col">Check</th><th scope="col">Last checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><td>Links and missing-page responses</td><td>Cursor, Oct 19</td><td>Passed</td></tr>
-              <tr><td>Security headers in the local preview</td><td>Codex, Oct 11</td><td>Passed</td></tr>
-              <tr><td>Layout on phone widths (320px and 375px) and desktop</td><td>Cursor, Oct 19</td><td>Passed</td></tr>
-              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Cursor, Oct 19</td><td>Passed</td></tr>
-              <tr><td>Live site on phone and desktop, including the 404 page</td><td>Me and Codex, Oct 12</td><td>Worked</td></tr>
+              <tr><td>Links and missing-page responses</td><td>Claude, Oct 23</td><td>Passed</td></tr>
+              <tr><td>Security headers in the local preview</td><td>Claude, Oct 23</td><td>Passed</td></tr>
+              <tr><td>Layout on phone widths (320px and 375px) and desktop</td><td>Claude, Oct 23</td><td>Passed</td></tr>
+              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Claude, Oct 23</td><td>Passed</td></tr>
+              <tr><td>Live site and 404 page on phone and desktop</td><td>Me, Oct 24</td><td>Worked</td></tr>
             </tbody>
           </table>
-          <p class="not-checked">Not yet checked: a full accessibility audit, performance measurements, and the hosted preview's access settings.
-            The full check record is kept in my private working repository.</p>
+          <p class="not-checked">The full check record is kept in my private working repository.</p>
         </section>
 
         <section id="updates">
@@ -147,11 +149,21 @@
           <!-- Newest entry first. -->
           <ol class="log" reversed>
             <li>
+              <time datetime="2026-10-24">October 24, 2026</time>
+              <div>
+                <h3>Homepage headline and wording revision</h3>
+                <p>I changed the homepage headline to "Personal projects and what I'm learning", removed the "Selected work" label above the Projects heading,
+                  and adjusted the spacing at the top of the project section in the CSS until it looked right. Claude reviewed the site's wording against
+                  my writing guide and applied the edits I chose from its suggestions. I reviewed the result and made further edits myself (PR #6).</p>
+                <p class="log-checks">Checked: Claude checked the links, the 404 page, phone widths, the skip link, security headers, and text contrast locally. I tested the local site and its 404 page on my desktop.</p>
+              </div>
+            </li>
+            <li>
               <time datetime="2026-10-19">October 19, 2026</time>
               <div>
                 <h3>Layout and wording revision</h3>
                 <p>A new layout that fits both ongoing and completed projects, with my role on the homepage, LinkedIn links, and a link to the public code repository. Cursor built the draft, and I chose which changes to keep and edited
-                  the HTML (PR #4).</p>
+                  the HTML (PRs #4 and #5).</p>
                 <p class="log-checks">Checked: I reviewed the draft in my browser. Cursor checked the links, the 404 page, phone widths, and the skip link locally.</p>
               </div>
             </li>
@@ -183,7 +195,7 @@
           <h2>Planned next</h2>
           <ul>
             <li>Add a project page for my Linux home server, with a photo of the hardware.</li>
-            <li>Make a CSS change myself and explain how it affects the page.</li>
+            <li>Style the Linux server page's photo in CSS myself and explain how each rule affects the page.</li>
             <li>Check that change on desktop and mobile, including keyboard navigation.</li>
           </ul>
         </section>

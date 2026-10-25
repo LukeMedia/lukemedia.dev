@@ -1,8 +1,8 @@
 # lukemedia.dev
 
-The code for [lukemedia.dev](https://lukemedia.dev/), the website where I share personal projects I build outside of work.
+The code for [lukemedia.dev](https://lukemedia.dev/), the website where I share personal projects I build outside work.
 
-The site is plain HTML and CSS, with no build step and no JavaScript, and it is hosted on Cloudflare. Each project page covers the project's purpose, the decisions I made, what I did, what AI tools I used and how I used them, and how the result was checked. The notes for this website are at [lukemedia.dev/projects/portfolio](https://lukemedia.dev/projects/portfolio/).
+The site is plain HTML and CSS, with no build step and no JavaScript, and it is hosted on Cloudflare. Each project page covers the project's purpose, the decisions I made, what I did, the AI tools I used and what for, and how the result was checked. The notes for this website are at [lukemedia.dev/projects/portfolio](https://lukemedia.dev/projects/portfolio/).
 
 ## About this repository
 

@@ -13,7 +13,9 @@ I make changes and keep my working notes in a private repository, where each cha
 | File | Purpose |
 | --- | --- |
 | `dist/index.html` | Homepage |
-| `dist/projects/portfolio/index.html` | Project notes |
+| `dist/projects/portfolio/index.html` | Website project notes |
+| `dist/projects/linux-server/index.html` | Linux home server notes |
+| `dist/images/linux-server-hardware.jpg` | Photo of the server hardware |
 | `dist/404.html` | Missing-page response |
 | `dist/styles.css` | Layout |
 | `dist/favicon-cats.png` | Site icon (cats drawing) |

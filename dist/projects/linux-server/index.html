@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linux home server | Luke Wood</title>
+  <meta name="description" content="Project notes for Luke Wood's Linux home server: setup, decisions, contributions and AI assistance, checks, a dated update log, and the planned move of its configuration to GitHub.">
+  <meta property="og:title" content="Linux home server | Luke Wood">
+  <meta property="og:description" content="Project notes for Luke Wood's Linux home server: setup, decisions, contributions and AI assistance, checks, a dated update log, and the planned move of its configuration to GitHub.">
+  <link rel="icon" href="/favicon-cats.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="/" aria-label="Luke Wood, home">Luke Wood<span class="wordmark-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="/#projects">Projects</a>
+      <a href="/#about">About</a>
+      <a href="https://github.com/LukeMedia">GitHub</a>
+      <a href="https://www.linkedin.com/in/lukewood5">LinkedIn</a>
+    </nav>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    <a class="breadcrumb" href="/#projects">Back to projects</a>
+    <header class="project-hero">
+      <p class="eyebrow">Ongoing project</p>
+      <h1>Linux home server<br><em>Ubuntu Server and Docker</em></h1>
+      <p class="intro">A general-purpose home server that runs Plex for my media and Minecraft servers for me and my friends. I've run it since 2023,
+        and next I plan to manage its configuration from a GitHub repository.</p>
+      <ul class="project-meta">
+        <li><strong>Status</strong> Ongoing</li>
+        <li><strong>Running since</strong> 2023</li>
+        <li><strong>Last updated</strong> October 14, 2026</li>
+        <li><strong>Built with</strong> Ubuntu Server, Docker, Portainer</li>
+      </ul>
+    </header>
+    <div class="case-body">
+      <nav class="contents" aria-label="On this page">
+        <div>
+          <p class="eyebrow">On this page</p>
+          <ul>
+            <li><a href="#goal">Goal</a></li>
+            <li><a href="#setup">Current setup</a></li>
+            <li><a href="#decisions">Decisions</a></li>
+            <li><a href="#contributions">My work and AI assistance</a></li>
+            <li><a href="#checks">Checks</a></li>
+            <li><a href="#updates">Update log</a></li>
+            <li><a href="#next">Planned next</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="prose">
+        <section id="goal">
+          <h2>Goal</h2>
+          <p>The goal of this project is to keep the server's configuration in a GitHub repository. That gives me a history of every configuration change, makes the
+            configuration easier to manage remotely, and lets this page link to the changes it describes. Portainer (Docker management tool) will poll that repository and
+            redeploy whenever the configuration changes. Passwords and keys will stay out of the repository.</p>
+          <p>None of the server's configuration is on GitHub yet. I'll move the service configurations one at a time, starting with Plex, and set up the deployment
+            once everything is in the repository. This page will record each step.</p>
+        </section>
+
+        <section id="setup">
+          <h2>Current setup</h2>
+          <p>I bought the server in October 2023: a Dell OptiPlex 3040 that a local shop sold for parts. Before buying it, I tested what was left of it in the shop
+            with parts borrowed from their other machines. It came with an Intel Core i5-6500 but no memory or drives. I added 16 GB of DDR3L memory, a 500 GB Samsung SATA SSD,
+            a 3 TB Seagate IronWolf NAS drive, and an AMD Radeon Pro WX 2100 for hardware transcoding in Plex, and replaced the CPU's thermal paste. Some of these
+            were parts I already had and some I bought online, and I did some light modding to make the SSD and hard drive fit.</p>
+          <p>I chose Ubuntu Server LTS for long-term stability without the overhead of a desktop environment, and the server still runs it (version 26.04.1 today).
+            At first it ran only Plex. When I wanted to host a Minecraft server with PufferPanel (game server management), I set up Portainer Business Edition on its 
+            free license and learned Docker, which I thought appeared too complicated before. I moved Plex into a container, then added PufferPanel and later Tautulli (Plex statistics).</p>
+          <p>In October 2026 I moved the SSD, the IronWolf drive, and the WX 2100 into a Dell OptiPlex 5060 with an Intel Core i7-8700 (six cores, twelve threads)
+            and 16 GB of DDR4 memory, and replaced that CPU's thermal paste as well. Plex now uses the i7-8700's integrated Intel GPU for hardware transcoding 
+            instead of the WX 2100, which I left installed.</p>
+          <figure class="project-figure">
+            <img src="/images/linux-server-hardware.jpg" width="1600" height="1496"
+              alt="Top-down view inside the Dell OptiPlex 5060 with its side panel removed, showing the CPU fan, a Seagate IronWolf hard drive, and an AMD Radeon Pro WX 2100 graphics card.">
+            <figcaption>The OptiPlex 5060 with its side panel off, taken on October 22, 2026. The IronWolf drive is at top right.</figcaption>
+          </figure>
+          <p>Watchtower checks the Portainer, PufferPanel, Plex, and Tautulli images for updates at 4:17 each morning and installs them. 
+            The Minecraft server containers are managed and updated through PufferPanel instead.</p>
+          <p>Most upkeep is routine and too small for its own log entry: managing the Plex library, running the Minecraft servers (which sometimes means
+            troubleshooting mods), etc.</p>
+        </section>
+
+        <section id="decisions">
+          <h2>Decisions</h2>
+          <div class="decision">
+            <h3>Docker and Portainer instead of installing each service directly</h3>
+            <p>Plex was first installed directly on Ubuntu, and I could have added PufferPanel the same way. Instead, I moved everything into Docker containers managed
+              through Portainer. Each service runs in its own container, so I can restart one without affecting the others, control what each one can access,
+              and keep services and their environment variables from interfering with each other.</p>
+          </div>
+          <div class="decision">
+            <h3>Docker Hub for the Plex and Tautulli images</h3>
+            <p>In early October, scheduled updates ran into rate limits on GitHub's container registry, where LinuxServer.io publishes its Plex and Tautulli images.
+              The same images are also on Docker Hub. I had Codex compare the images on both registries and it confirmed they were identical when checked,
+              so I switched Plex and Tautulli to Docker Hub and kept the same publisher. While the logs didn't directly trace each failed run, subsequent debug runs
+              from October 11 to 14 all completed successfully.</p>
+          </div>
+          <div class="decision">
+            <h3>Portainer polling GitHub instead of a webhook</h3>
+            <p>Portainer can deploy from a Git repository and pick up changes either by polling the repository or through a webhook. A webhook would mean exposing
+              Portainer to the internet so GitHub could reach it, which I'd rather avoid. Portainer will poll the repository on a set interval instead.</p>
+          </div>
+          <div class="decision">
+            <h3>The Intel GPU instead of the WX 2100 for Plex</h3>
+            <p>Getting a newer Intel GPU for Plex was the main reason I moved to the OptiPlex 5060 (along with a good deal on eBay). Plex could have kept using the WX 2100 
+              for hardware transcoding, but Intel's 8th-generation and newer processors handle transcoding better, especially several streams at once, and Plex officially 
+              supports them. The switch fixed transcoding problems my dad had when streaming from the server, and the colors that sometimes came out wrong in my own playback. 
+              I left the WX 2100 installed simply because I already had it.</p>
+          </div>
+        </section>
+
+        <section id="contributions">
+          <h2>My work and AI assistance</h2>
+          <div class="attribution">
+            <div>
+              <h3>What I did (or do)</h3>
+              <ul>
+                <li>Bought the OptiPlex 3040 for parts, tested it in the shop, added the memory, drives, and graphics card, and replaced the CPU's thermal paste.</li>
+                <li>Installed Ubuntu Server and Plex, then set up Portainer, PufferPanel, and Tautulli in Docker.</li>
+                <li>Manage the Plex library and the Minecraft servers, and troubleshoot mod problems as they come up.</li>
+                <li>Moved the drives and the WX 2100 into the OptiPlex 5060 and replaced its CPU's thermal paste.</li>
+                <li>Ran the commands to fix the Ethernet device mapping on the new hardware.</li>
+                <li>Switched Plex to the Intel GPU and corrected its device mappings in Portainer to expose only that GPU.</li>
+                <li>Redeployed Plex and Tautulli from Docker Hub in Portainer.</li>
+                <li>Chose which services Watchtower updates, and approved the changes Codex made to it.</li>
+                <li>Forced a test transcode and confirmed hardware decoding and encoding in Plex's dashboard.</li>
+                <li>Decided to move the configuration to GitHub, with Portainer polling the repository instead of a webhook.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>How I used AI tools</h3>
+              <ul>
+                <li>Had Codex diagnose Watchtower after it stopped, then deploy the maintained fork I approved.</li>
+                <li>Had Codex compare the Plex and Tautulli images on both registries before I switched them.</li>
+                <li>Had Codex identify the cause of the Ethernet device mapping problem on the new hardware and find the fix in Ubuntu's documentation.</li>
+                <li>Had Codex inspect the GPUs, drivers, device paths, and Plex's startup error after the hardware move, and check the server once Plex was fixed.</li>
+                <li>Used Codex to review Watchtower's update runs and record each investigation in a runbook.</li>
+                <li>Used Claude to draft this page from my notes and to check Portainer's documentation on polling a Git repository.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="checks">
+          <h2>Checks</h2>
+          <p>The latest result for each kind of check. Checks for each change are in the update log.</p>
+          <table class="checks">
+            <thead>
+              <tr><th scope="col">Check</th><th scope="col">Last checked</th><th scope="col">Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Watchtower updates for the four services, daily runs from October 11 to 14</td><td>Codex, Oct 14</td><td>Passed</td></tr>
+              <tr><td>The four services respond on the server after updating</td><td>Codex, Oct 14</td><td>Passed</td></tr>
+              <tr><td>Hardware transcoding on the Intel GPU during playback</td><td>Me and Codex, Oct 11</td><td>Worked</td></tr>
+              <tr><td>Drives, network, and SSH on the new hardware</td><td>Me and Codex, Oct 11</td><td>Passed</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="updates">
+          <h2>Update log</h2>
+          <!-- Newest entry first. -->
+          <ol class="log" reversed>
+            <li>
+              <time datetime="2026-10-14">October 14, 2026</time>
+              <div>
+                <h3>Watchtower checked after the hardware move</h3>
+                <p>Codex reviewed Watchtower's runs from October 11 to 14. Each run checked all four services without a failure, and the October 11 run installed
+                  a Tautulli update. With my approval, Codex then switched Watchtower from the debug logging used during the repair back to normal logging.</p>
+                <p class="log-checks">Checked: Codex confirmed that all four services responded on the server, and that Watchtower and the services were running
+                  after the logging change.</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="2026-10-10">October 10, 2026</time>
+              <div>
+                <h3>Moved to the OptiPlex 5060</h3>
+                <p>I moved the drives and the WX 2100 from the OptiPlex 3040 into the OptiPlex 5060, and the existing Ubuntu installation booted. Ethernet didn't work at first 
+                  because its device mapping was wrong after the move. Codex identified the cause and found the fix in Ubuntu's documentation, and I ran the commands to apply it. 
+                  Plex didn't start, because its device mapping pointed to a GPU device path that no longer existed. The device numbers had also shifted: the one that used to
+                  be the WX 2100 now belonged to the Intel GPU, so the old numbers couldn't be trusted to identify either one. Codex inspected the GPUs, drivers, device
+                  paths, and Plex's startup error. I then corrected Plex's device mappings in Portainer to expose only the Intel GPU.</p>
+                <p class="log-checks">Checked: Codex and I confirmed that the drives, network, and SSH worked on the new hardware and that Plex started with the corrected
+                  mappings. I forced a transcode and saw hardware decoding and encoding in Plex's dashboard, and while it played, Codex confirmed the Intel GPU was
+                  doing the work.</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="2026-10-03">October 3 to 8, 2026</time>
+              <div>
+                <h3>Repaired Watchtower</h3>
+                <p>Watchtower had stopped. Codex's read-only checks found that it had no restart policy and was configured with a Docker API version too old for the
+                  server's Docker, though the logs didn't show why it first stopped. I chose four services for automatic updates and had Codex deploy a
+                  maintained fork of Watchtower, which I approved. I had Codex run a one-time check in monitor-only mode, then scheduled monitor-only checks, before I approved
+                  scheduled updates. When image pulls from GitHub's container registry then hit rate limits, I decided to move Plex and Tautulli to Docker Hub (see Decisions).
+                  Changing a container's running image doesn't change the configuration Portainer saves for it, so Codex checked both.</p>
+                <p class="log-checks">Checked: before the replacement could update anything, Codex confirmed it could connect to Docker and had selected only the
+                  four services. On October 8, a scheduled run updated Portainer.</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="2023-10">October 2023</time>
+              <div>
+                <h3>Built from a for-parts OptiPlex 3040</h3>
+                <p>Set up with Ubuntu Server and Plex, later moved to Docker. This log is detailed from October 2026 onward.</p>
+                <p class="log-checks">Checked: I tested the remaining parts in the shop before buying, and checked that the services I set up worked as expected.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section id="next">
+          <h2>Planned next</h2>
+          <ul>
+            <li>Move the service configurations to a GitHub repository one at a time, starting with Plex.</li>
+            <li>Deploy them in Portainer from the repository with polling turned on, and test that a change in the repository reaches the server.</li>
+            <li>Remove a service and redeploy it from the repository to confirm it comes back with the same settings.</li>
+            <li>Test that the server can handle three or four transcodes at once, the most I expect at one time.</li>
+            <li>Link to the configuration repository from this page.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer wrap">
+    <p>&copy; 2026 Luke Wood</p>
+    <a href="/">Back to the homepage</a>
+  </footer>
+</body>
+</html>

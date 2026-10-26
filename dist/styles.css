@@ -36,7 +36,7 @@ h1 em { font-weight: 400; color: var(--accent); }
 .button:hover { background: #503184; }
 .section { padding-block: 42px; }
 .projects { border-top: 1px solid var(--line); }
-.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
 .section-heading h2, .about h2 { font: 400 35px/1.2 var(--serif); letter-spacing: -.02em; margin-top: 11px; }
 .section.projects { padding-top: 30px; }
 .section-heading h2 { margin-top: 0; }
@@ -58,6 +58,9 @@ h1 em { font-weight: 400; color: var(--accent); }
 .latest strong { font-weight: 600; }
 .tags { display: flex; flex-wrap: wrap; gap: 9px 19px; list-style: none; padding: 0; margin: 14px 0 0; font-size: 11px; color: var(--muted); }
 .project-link { font-size: 12px; white-space: nowrap; color: var(--accent); }
+.project-figure { margin: 20px; }
+.project-figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+.project-figure figcaption { font-size: 13px; color: var(--muted); }
 
 .about { background: var(--lavender); border-block: 1px solid var(--line); margin-top: 30px; }
 .about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; }

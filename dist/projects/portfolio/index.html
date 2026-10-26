@@ -30,7 +30,7 @@
       <ul class="project-meta">
         <li><strong>Status</strong> Ongoing</li>
         <li><strong>Started</strong> October 2026</li>
-        <li><strong>Last updated</strong> October 24, 2026</li>
+        <li><strong>Last updated</strong> October 25, 2026</li>
         <li><strong>Built with</strong> HTML, CSS, Git, GitHub, Cloudflare</li>
         <li><strong>Links</strong> <a href="https://lukemedia.dev/">Live site</a> &middot; <a href="https://github.com/LukeMedia/lukemedia.dev">Repository</a></li>
       </ul>
@@ -79,11 +79,11 @@
           </div>
           <div class="decision">
             <h3>One project list with status tags</h3>
-            <p>I tried separate sections for ongoing and completed projects, but the split repeated each status tag and left the completed section empty. Projects now share one list, each tagged with its status.</p>
+            <p>I tried separate sections for ongoing and completed projects, but the split repeated each status tag and left the completed section empty. Projects now share one list, each tagged with its status. Ongoing and in-progress projects come first, newest start date first, then completed projects, newest finish date first.</p>
           </div>
           <div class="decision">
             <h3>My role first, and no screenshots in the project list</h3>
-            <p>Portfolio sites often put the person's role near the top, where readers see it first, so mine sits above the headline. I left screenshots out of the project list because my first projects wouldn't all have useful images, and a list where only some entries have one looks inconsistent. Photos go on project pages instead, where they show something a reader can't otherwise see.</p>
+            <p>Portfolio sites often put the person's role near the top, where readers see it first, so mine sits above the headline. I left screenshots out of the project list because my first projects wouldn't all have useful images, and a list where only some entries have one looks inconsistent. Photos go on project pages instead, where they show something a reader can't otherwise see, such as the server hardware.</p>
           </div>
           <div class="decision">
             <h3>A public repository for the code, and a private one for my working history</h3>
@@ -102,7 +102,8 @@
                 <li>Reviewed the wording in a Google Doc, left comments, and approved the first revision of the text.</li>
                 <li>Added the site icon, which is a drawing of my cats (thanks for the drawing, Fern!), and updated its links on all three pages.</li>
                 <li>Reviewed the layout drafts, chose which changes to keep, and edited the HTML myself.</li>
-                <li>Changed the homepage headline and adjusted the project-section spacing in the CSS.</li>
+                <li>Changed the homepage headline, and adjusted the Projects heading's spacing and alignment in the CSS.</li>
+                <li>Styled the Linux server page's photo in CSS.</li>
                 <li>Committed, pushed, and merged each change through pull requests.</li>
                 <li>Tested the live site and its 404 page on my phone and desktop.</li>
               </ul>
@@ -117,12 +118,12 @@
                 <li>Had Cursor draft an alternative version of the wording. The site's first headline came from that draft.</li>
                 <li>Used Cursor to build the layout drafts and copy the version I edited and approved into the site.</li>
                 <li>Had Codex review other portfolio sites for common practices.</li>
-                <li>Used Claude to review the site's wording against my writing guide and apply the edits I chose.</li>
+                <li>Used Claude to review the site's wording against my writing guide, apply the edits I chose, and draft the Linux home server page from my notes.</li>
               </ul>
             </div>
           </div>
           <p>Each entry in the update log says who made that change, so the balance between my code and generated code shows there as it shifts.
-            My own code changes so far are the site icon update, the HTML edits in the October 19 layout revision, and some HTML and CSS changes in the October 24 revision.</p>
+            My own code changes so far are the site icon update, the HTML edits in the October 19 layout revision, and some HTML and CSS changes in both the October 24 and 25 revisions.</p>
         </section>
 
         <section id="checks">
@@ -133,11 +134,11 @@
               <tr><th scope="col">Check</th><th scope="col">Last checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><td>Links and missing-page responses</td><td>Claude, Oct 23</td><td>Passed</td></tr>
-              <tr><td>Security headers in the local preview</td><td>Claude, Oct 23</td><td>Passed</td></tr>
-              <tr><td>Layout on phone widths (320px and 375px) and desktop</td><td>Claude, Oct 23</td><td>Passed</td></tr>
-              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Claude, Oct 23</td><td>Passed</td></tr>
-              <tr><td>Live site and 404 page on phone and desktop</td><td>Me, Oct 24</td><td>Worked</td></tr>
+              <tr><td>Links and missing-page responses</td><td>Me and Claude, Oct 25</td><td>Passed</td></tr>
+              <tr><td>Security headers in the local preview</td><td>Claude, Oct 25</td><td>Passed</td></tr>
+              <tr><td>Layout on phone widths (320px and 375px) and desktop</td><td>Me and Claude, Oct 25</td><td>Passed</td></tr>
+              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Claude, Oct 25</td><td>Passed</td></tr>
+              <tr><td>Live site and 404 page on phone and desktop</td><td>Me, Oct 25</td><td>Worked</td></tr>
             </tbody>
           </table>
           <p class="not-checked">The full check record is kept in my private working repository.</p>
@@ -148,6 +149,19 @@
           <p>Pull request numbers refer to my private working repository.</p>
           <!-- Newest entry first. -->
           <ol class="log" reversed>
+            <li>
+              <time datetime="2026-10-25">October 25, 2026</time>
+              <div>
+                <h3>Linux home server page</h3>
+                <p>A project page for my Linux home server, with a photo of the hardware, and a card for it on the homepage. I supplied the facts, my notes,
+                  and the photo, and Claude drafted the page. I styled the photo in CSS myself: margins that inset it from the text, a width that resizes with
+                  the page, a 1px border with slightly rounded corners, and a smaller, muted caption. I also set the order of the project list, with ongoing and
+                  in-progress projects before completed ones, each group newest first, and centered the Projects heading with its caption. I reviewed the result 
+                  and made final edits myself (PR #7).</p>
+                <p class="log-checks">Checked: Claude checked the links, the 404 page, phone widths, the skip link, security headers, and text contrast locally.
+                  I checked phone widths and the 404 page in my local preview, and the Cloudflare branch preview on my phone and desktop.</p>
+              </div>
+            </li>
             <li>
               <time datetime="2026-10-24">October 24, 2026</time>
               <div>
@@ -194,9 +208,9 @@
         <section id="next">
           <h2>Planned next</h2>
           <ul>
-            <li>Add a project page for my Linux home server, with a photo of the hardware.</li>
-            <li>Style the Linux server page's photo in CSS myself and explain how each rule affects the page.</li>
-            <li>Check that change on desktop and mobile, including keyboard navigation.</li>
+            <li>Add a project page for my next project, a progress tree and small mod for me and a friend on my Minecraft server.</li>
+            <li>Work through a free online HTML and CSS course, such as W3Schools, to understand this site's code better and see how far what I've learned already takes me.</li>
+            <li>Do more of the hands-on work in future changes myself, as I did with the photo CSS.</li>
           </ul>
         </section>
       </div>

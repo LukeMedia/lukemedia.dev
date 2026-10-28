@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Linux home server | Luke Wood</title>
-  <meta name="description" content="Project notes for Luke Wood's Linux home server: setup, decisions, contributions and AI assistance, checks, a dated update log, and the planned move of its configuration to GitHub.">
-  <meta property="og:title" content="Linux home server | Luke Wood">
-  <meta property="og:description" content="Project notes for Luke Wood's Linux home server: setup, decisions, contributions and AI assistance, checks, a dated update log, and the planned move of its configuration to GitHub.">
+  <title>Linux home server | lukemedia.dev</title>
+  <meta name="description" content="Project notes for my Linux home server: setup, decisions, contributions and AI assistance, checks, a dated update log, and the planned move of its configuration to GitHub.">
+  <meta property="og:title" content="Linux home server | lukemedia.dev">
+  <meta property="og:description" content="Project notes for my Linux home server: setup, decisions, contributions and AI assistance, checks, a dated update log, and the planned move of its configuration to GitHub.">
   <link rel="icon" href="/favicon-cats.png" type="image/png" sizes="64x64">
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -31,7 +31,7 @@
       <ul class="project-meta">
         <li><strong>Status</strong> Ongoing</li>
         <li><strong>Running since</strong> 2023</li>
-        <li><strong>Last updated</strong> October 14, 2026</li>
+        <li><strong>Last updated</strong> October 26, 2026</li>
         <li><strong>Built with</strong> Ubuntu Server, Docker, Portainer</li>
       </ul>
     </header>
@@ -70,7 +70,8 @@
             At first it ran only Plex. When I wanted to host a Minecraft server with PufferPanel (game server management), I set up Portainer Business Edition on its 
             free license and learned Docker, which I thought appeared too complicated before. I moved Plex into a container, then added PufferPanel and later Tautulli (Plex statistics).</p>
           <p>In October 2026 I moved the SSD, the IronWolf drive, and the WX 2100 into a Dell OptiPlex 5060 with an Intel Core i7-8700 (six cores, twelve threads)
-            and 16 GB of DDR4 memory, and replaced that CPU's thermal paste as well. Plex now uses the i7-8700's integrated Intel GPU for hardware transcoding 
+            and 16 GB of DDR4 memory, and replaced that CPU's thermal paste as well. On October 26 I added another 16 GB, for 32 GB in total,
+            all running at 2133 MT/s. The same day, I replaced the 5060's power supply with a Delta Electronics unit. Plex now uses the i7-8700's integrated Intel GPU for hardware transcoding 
             instead of the WX 2100, which I left installed.</p>
           <figure class="project-figure">
             <img src="/images/linux-server-hardware.jpg" width="1600" height="1496"
@@ -121,13 +122,15 @@
                 <li>Bought the OptiPlex 3040 for parts, tested it in the shop, added the memory, drives, and graphics card, and replaced the CPU's thermal paste.</li>
                 <li>Installed Ubuntu Server and Plex, then set up Portainer, PufferPanel, and Tautulli in Docker.</li>
                 <li>Manage the Plex library and the Minecraft servers, and troubleshoot mod problems as they come up.</li>
+                <li>Chose which services Watchtower updates, and approved the changes Codex made to it.</li>
+                <li>Redeployed Plex and Tautulli from Docker Hub in Portainer.</li>
                 <li>Moved the drives and the WX 2100 into the OptiPlex 5060 and replaced its CPU's thermal paste.</li>
                 <li>Ran the commands to fix the Ethernet device mapping on the new hardware.</li>
                 <li>Switched Plex to the Intel GPU and corrected its device mappings in Portainer to expose only that GPU.</li>
-                <li>Redeployed Plex and Tautulli from Docker Hub in Portainer.</li>
-                <li>Chose which services Watchtower updates, and approved the changes Codex made to it.</li>
                 <li>Forced a test transcode and confirmed hardware decoding and encoding in Plex's dashboard.</li>
                 <li>Decided to move the configuration to GitHub, with Portainer polling the repository instead of a webhook.</li>
+                <li>Tested another lamp and another power strip to narrow my lamp's flicker down to its circuit, traced it to the server, and replaced the server's power supply.</li>
+                <li>Installed another 16 GB of memory and confirmed that Ubuntu detected all of it.</li>
               </ul>
             </div>
             <div>
@@ -137,8 +140,11 @@
                 <li>Had Codex compare the Plex and Tautulli images on both registries before I switched them.</li>
                 <li>Had Codex identify the cause of the Ethernet device mapping problem on the new hardware and find the fix in Ubuntu's documentation.</li>
                 <li>Had Codex inspect the GPUs, drivers, device paths, and Plex's startup error after the hardware move, and check the server once Plex was fixed.</li>
-                <li>Used Codex to review Watchtower's update runs and record each investigation in a runbook.</li>
-                <li>Used Claude to draft this page from my notes and to check Portainer's documentation on polling a Git repository.</li>
+                <li>Used Codex to review Watchtower's update runs and record each investigation in a report.</li>
+                <li>Had Codex find LED bulbs less likely to flicker and threads from people with similar problems, then research replacement power supplies
+                  from reputable manufacturers that would fit the OptiPlex 5060.</li>
+                <li>Used Claude to draft this page from my notes, check Portainer's documentation on polling a Git repository, and resize the photo
+                  and remove its metadata.</li>
               </ul>
             </div>
           </div>
@@ -152,6 +158,7 @@
               <tr><th scope="col">Check</th><th scope="col">Last checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
+              <tr><td>All 32 GB of memory detected, at 2133 MT/s</td><td>Me, Oct 26</td><td>Passed</td></tr>
               <tr><td>Watchtower updates for the four services, daily runs from October 11 to 14</td><td>Codex, Oct 14</td><td>Passed</td></tr>
               <tr><td>The four services respond on the server after updating</td><td>Codex, Oct 14</td><td>Passed</td></tr>
               <tr><td>Hardware transcoding on the Intel GPU during playback</td><td>Me and Codex, Oct 11</td><td>Worked</td></tr>
@@ -164,6 +171,33 @@
           <h2>Update log</h2>
           <!-- Newest entry first. -->
           <ol class="log" reversed>
+            <li>
+              <time datetime="2026-10-26">October 26, 2026</time>
+              <div>
+                <h3>Doubled the memory to 32 GB</h3>
+                <p>I installed 16 GB of DDR4 memory from a friend's OptiPlex 7040 (thanks for the RAM, Tyler!), bringing the server to 32 GB. The added memory
+                  is slower, so all of it now runs at 2133 MT/s instead of 2666 MT/s. I think the extra memory is worth more than the lost speed, especially
+                  since it was free.</p>
+                <p class="log-checks">Checked: I confirmed in Ubuntu that all 32 GB was detected and running at 2133 MT/s.</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="2026-10-26">October 26, 2026</time>
+              <div>
+                <h3>Replaced the power supply</h3>
+                <p>My lamp started flickering after I set up the OptiPlex 5060. My apartment was built in 1910, and I thought old wiring, together with LED bulbs being
+                  more sensitive to small voltage changes, could explain it (and I still think that's part of it). I had Codex research LED bulbs less likely to
+                  flicker, but mine was already one of the best it found. A different lamp with a different bulb flickered on the same circuit too, and so did the lamp
+                  on a different power strip, so the problem was voltage changes on that circuit, not the lamp, the bulb, or the power strip. I also had Codex search
+                  for threads from people with similar problems, and one on Reddit described fixing it with a new power supply. Then I noticed that turning off the
+                  server stopped the flicker. Oddly, the lamp flickered even while the server was idle.</p>
+                <p>I had Codex find replacement power supplies from reputable manufacturers that would fit the 5060, and I bought a Delta Electronics power supply with
+                  an 80 Plus Platinum efficiency rating on eBay for $25. I still can't confirm the exact cause of the flicker, but I haven't noticed any since.
+                  Afterward, I read that a computer power supply with poor filtering can put electrical interference into a home's wiring and make voltage-sensitive
+                  electronics, like LED bulbs, flicker.</p>
+                <p class="log-checks">Checked: I haven't noticed the lamp flicker since the new power supply went in.</p>
+              </div>
+            </li>
             <li>
               <time datetime="2026-10-14">October 14, 2026</time>
               <div>

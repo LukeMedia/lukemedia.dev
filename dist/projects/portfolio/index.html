@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio website | Luke Wood</title>
+  <title>Portfolio website | lukemedia.dev</title>
   <meta name="description" content="Project notes for lukemedia.dev: decisions, contributions and AI assistance, checks, and a dated update log.">
-  <meta property="og:title" content="Portfolio website | Luke Wood">
+  <meta property="og:title" content="Portfolio website | lukemedia.dev">
   <meta property="og:description" content="Project notes for lukemedia.dev: decisions, contributions and AI assistance, checks, and a dated update log.">
   <link rel="icon" href="/favicon-cats.png" type="image/png" sizes="64x64">
   <link rel="stylesheet" href="/styles.css">
@@ -30,7 +30,7 @@
       <ul class="project-meta">
         <li><strong>Status</strong> Ongoing</li>
         <li><strong>Started</strong> October 2026</li>
-        <li><strong>Last updated</strong> October 25, 2026</li>
+        <li><strong>Last updated</strong> October 27, 2026</li>
         <li><strong>Built with</strong> HTML, CSS, Git, GitHub, Cloudflare</li>
         <li><strong>Links</strong> <a href="https://lukemedia.dev/">Live site</a> &middot; <a href="https://github.com/LukeMedia/lukemedia.dev">Repository</a></li>
       </ul>
@@ -134,11 +134,12 @@
               <tr><th scope="col">Check</th><th scope="col">Last checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><td>Links and missing-page responses</td><td>Me and Claude, Oct 25</td><td>Passed</td></tr>
-              <tr><td>Security headers in the local preview</td><td>Claude, Oct 25</td><td>Passed</td></tr>
-              <tr><td>Layout on phone widths (320px and 375px) and desktop</td><td>Me and Claude, Oct 25</td><td>Passed</td></tr>
-              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Claude, Oct 25</td><td>Passed</td></tr>
-              <tr><td>Live site and 404 page on phone and desktop</td><td>Me, Oct 25</td><td>Worked</td></tr>
+              <tr><td>Links and missing-page responses</td><td>Me, Oct 27</td><td>Passed</td></tr>
+              <tr><td>Security headers in the local preview</td><td>Claude, Oct 27</td><td>Passed</td></tr>
+              <tr><td>Layout on phone widths (320px and 375px) and several desktop widths</td><td>Me and Claude, Oct 27</td><td>Passed</td></tr>
+              <tr><td>Keyboard skip link and text contrast (4.5:1 minimum)</td><td>Claude, Oct 27</td><td>Passed</td></tr>
+              <tr><td>Cloudflare branch preview on phone and desktop</td><td>Me, Oct 27</td><td>Worked</td></tr>
+              <tr><td>Live site and 404 page on phone and desktop</td><td>Me, Oct 27</td><td>Worked</td></tr>
             </tbody>
           </table>
           <p class="not-checked">The full check record is kept in my private working repository.</p>
@@ -150,6 +151,17 @@
           <!-- Newest entry first. -->
           <ol class="log" reversed>
             <li>
+              <time datetime="2026-10-27">October 27, 2026</time>
+              <div>
+                <h3>Page titles and a server update</h3>
+                <p>Page titles and link previews now show "lukemedia.dev" instead of my "Luke Wood", and the server page's description says "my" instead of "Luke Wood's" (third person
+                  is silly anyway). I widened the Projects caption so it shouldn't wrap onto a fourth line, and the server page now records the memory upgrade and the new power
+                  supply. I made the title, description, and caption changes myself (PR #8).</p>
+                <p class="log-checks">Checked: Claude checked the skip link, security headers, and text contrast locally. I checked links, the 404 page, and phone and desktop widths 
+                  in my local preview, and the Cloudflare branch preview on my phone and desktop.</p>
+              </div>
+            </li>
+            <li>
               <time datetime="2026-10-25">October 25, 2026</time>
               <div>
                 <h3>Linux home server page</h3>
@@ -159,7 +171,7 @@
                   in-progress projects before completed ones, each group newest first, and centered the Projects heading with its caption. I reviewed the result 
                   and made final edits myself (PR #7).</p>
                 <p class="log-checks">Checked: Claude checked the links, the 404 page, phone widths, the skip link, security headers, and text contrast locally.
-                  I checked phone widths and the 404 page in my local preview, and the Cloudflare branch preview on my phone and desktop.</p>
+                  I checked phone widths and the 404 page in my local preview, and the Cloudflare branch preview on my desktop.</p>
               </div>
             </li>
             <li>
@@ -169,7 +181,8 @@
                 <p>I changed the homepage headline to "Personal projects and what I'm learning", removed the "Selected work" label above the Projects heading,
                   and adjusted the spacing at the top of the project section in the CSS until it looked right. Claude reviewed the site's wording against
                   my writing guide and applied the edits I chose from its suggestions. I reviewed the result and made further edits myself (PR #6).</p>
-                <p class="log-checks">Checked: Claude checked the links, the 404 page, phone widths, the skip link, security headers, and text contrast locally. I tested the local site and its 404 page on my desktop.</p>
+                <p class="log-checks">Checked: Claude checked the links, the 404 page, phone widths, the skip link, security headers, and text contrast locally. 
+                  I tested the local site, its 404 page, and the Cloudflare branch preview on my desktop.</p>
               </div>
             </li>
             <li>

@@ -40,7 +40,7 @@ h1 em { font-weight: 400; color: var(--accent); }
 .section-heading h2, .about h2 { font: 400 35px/1.2 var(--serif); letter-spacing: -.02em; margin-top: 11px; }
 .section.projects { padding-top: 30px; }
 .section-heading h2 { margin-top: 0; }
-.section-caption { color: var(--muted); font-size: 13px; max-width: 360px; }
+.section-caption { color: var(--muted); font-size: 13px; max-width: 380px; }
 
 .project-list { border-top: 1px solid var(--line); }
 .project { border-bottom: 1px solid var(--line); padding-block: 26px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 22px; align-items: center; }
